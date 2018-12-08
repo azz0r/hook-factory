@@ -2,11 +2,26 @@
   "name": "fight-simulator",
   "version": "0.0.1",
   "description": "fight simulation with hook system",
-  "main": "index.js",
+  "main": "src/index.js",
   "repository": "git@github.com:azz0r/fight-simulator.git",
   "author": "Aaron Lote <5314860+azz0r@users.noreply.github.com>",
   "license": "MIT",
   "devDependencies": {
-    "benchmark": "^2.1.4"
-  }
+    "rollup": "^0.67.0",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "benchmark": "^2.1.4",
+    "rollup-plugin-node-resolve": "^3.0.0"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "node test/test.js",
+    "pretest": "npm run build"
+  },
+  "main": "dist/fightSimulator.cjs.js",
+  "module": "dist/fightSimulator.esm.js",
+  "browser": "dist/fightSimulator.umd.js",
+  "files": [
+    "dist"
+  ]
 }

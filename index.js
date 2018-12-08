@@ -1,11 +1,17 @@
-const factory = function({ data = {}, modifiers = [] }) {
-  let props = JSON.parse(JSON.stringify(data));
-  const prehooks = modifiers.map(modifier => modifier.prehook);
-  const posthooks = modifiers.map(modifier => modifier.posthook);
+import http from "http";
 
-  prehooks.forEach(prehook => (props = prehook(props)));
-  posthooks.forEach(posthook => (props = posthook(props)));
-  return props;
-};
+import factory from "./src/index";
+import modifiers from "./test/modifiers";
+import data from "./fixtures";
 
-export default factory;
+http
+  .createServer((req, res) => {
+    try {
+      factory({ modifiers, data });
+    } catch (error) {
+      console.log(error);
+    }
+  })
+  .listen(1337, "127.0.0.1");
+
+console.log("Server running");
