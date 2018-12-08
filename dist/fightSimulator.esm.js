@@ -8,4 +8,17 @@ const factory = function({ data = {}, modifiers = [] }) {
   return props;
 };
 
+const noop = data => data;
+const formatModel = {
+  prehook: data => data.map(item => Object.assign({}, { points: 100 }, item)),
+  posthook: data => noop(data)
+};
+const genderFilter = gender => ({
+  prehook: data => noop(data),
+  posthook: data => data.filter(item => item.gender === gender)
+});
+
+var modifiers = { genderFilter, formatModel };
+
 export default factory;
+export { factory, modifiers };

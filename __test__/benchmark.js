@@ -28,5 +28,3 @@ suite
     console.log("Fastest is " + this.filter("fastest").map("name"));
   })
   .run({ async: true });
-
-  export default suite;

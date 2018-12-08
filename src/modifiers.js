@@ -8,4 +8,4 @@ export const genderFilter = gender => ({
   posthook: data => data.filter(item => item.gender === gender)
 });
 
-export default [genderFilter, formatModel];
+export default { genderFilter, formatModel };
