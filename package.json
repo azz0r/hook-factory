@@ -1,0 +1,12 @@
+{
+  "name": "fight-simulator",
+  "version": "0.0.1",
+  "description": "fight simulation with hook system",
+  "main": "index.js",
+  "repository": "git@github.com:azz0r/fight-simulator.git",
+  "author": "Aaron Lote <5314860+azz0r@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "benchmark": "^2.1.4"
+  }
+}
