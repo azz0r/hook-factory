@@ -2,7 +2,9 @@
   "env": {
     "test": {
       "presets": [
-        ["env", { "modules": "commonjs" }]
+        ["env", {
+          "modules": "commonjs"
+        }]
       ]
     },
     "development": {

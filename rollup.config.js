@@ -2,8 +2,7 @@ import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
 import pkg from "./package.json";
 
-export default [
-  {
+export default [{
     input: "src/index.js",
     output: {
       name: "fightSimulator",
@@ -15,9 +14,14 @@ export default [
   {
     input: "src/index.js",
     external: ["ms"],
-    output: [
-      { file: pkg.main, format: "cjs" },
-      { file: pkg.module, format: "es" }
+    output: [{
+        file: pkg.main,
+        format: "cjs"
+      },
+      {
+        file: pkg.module,
+        format: "es"
+      }
     ]
   }
 ];

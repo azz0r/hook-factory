@@ -1,11 +1,14 @@
 export const noop = data => data;
 export const formatModel = {
-  prehook: data => data.map(item => Object.assign({}, { points: 100 }, item)),
-  posthook: data => noop(data)
+  prehook: data => data.map(item => Object.assign({}, {
+    points: 100
+  }, item)),
 };
 export const genderFilter = gender => ({
-  prehook: data => noop(data),
   posthook: data => data.filter(item => item.gender === gender)
 });
 
-export default { genderFilter, formatModel };
+export default {
+  genderFilter,
+  formatModel
+};

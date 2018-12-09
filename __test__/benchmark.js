@@ -7,9 +7,12 @@ import factory from "../src";
 const suite = new Benchmark.Suite();
 
 suite
-  .add("Factory", function() {
+  .add("Factory", function () {
     try {
-      factory({ data, modifiers });
+      factory({
+        data,
+        modifiers
+      });
     } catch (error) {
       console.log(error, "error");
     }
@@ -21,10 +24,12 @@ suite
   //     console.log(error, "error");
   //   }
   // })
-  .on("cycle", function(event) {
+  .on("cycle", function (event) {
     console.log(String(event.target));
   })
-  .on("complete", function() {
+  .on("complete", function () {
     console.log("Fastest is " + this.filter("fastest").map("name"));
   })
-  .run({ async: true });
+  .run({
+    async: true
+  });
