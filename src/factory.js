@@ -1,4 +1,4 @@
-const factory = function ({
+export default function ({
   data = {},
   modifiers = []
 }) {
@@ -24,5 +24,3 @@ const factory = function ({
   }
   return props;
 };
-
-export default factory;
