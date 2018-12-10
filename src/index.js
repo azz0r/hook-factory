@@ -1,9 +1,26 @@
-import factory from "./factory"
-import * as modifiers from "./modifiers/index"
+export default function ({
+    data = {},
+    modifiers = []
+}) {
+    let props = JSON.parse(JSON.stringify(data));
+    const prehooks = modifiers.reduce((result, modifier) => {
+        if (modifier.prehook) {
+            result.push(modifier.prehook);
+        }
+        return result;
+    }, []);
+    const posthooks = modifiers.reduce((result, modifier) => {
+        if (modifier.posthook) {
+            result.push(modifier.posthook);
+        }
+        return result;
+    }, []);
 
-export {
-    factory,
-    modifiers
-}
-
-export default factory;
+    if (prehooks) {
+        prehooks.forEach(prehook => (props = prehook(props)));
+    }
+    if (posthooks) {
+        posthooks.forEach(posthook => (props = posthook(props)));
+    }
+    return props;
+};

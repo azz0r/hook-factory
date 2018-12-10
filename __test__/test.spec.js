@@ -6,10 +6,10 @@ import {
   filterByGender,
   randomiseFight,
   randomiseResults,
-} from "../src/modifiers"
+} from "./modifiers"
 import {
   groupBy
-} from "../src/helpers"
+} from "./helpers"
 import {
   justMen,
   justWomen,
