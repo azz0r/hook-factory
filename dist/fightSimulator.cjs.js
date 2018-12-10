@@ -36,6 +36,34 @@ function factory ({
 const select = weighted.select;
 const arrayOfLength = length => new Array(length).fill(1 / length);
 const chooseRandom = items => select(items, arrayOfLength(items.length));
+const groupBy = (objectArray, property) => {
+    return objectArray.reduce((acc, obj) => {
+        var key = obj[property];
+        if (!acc[key]) {
+            acc[key] = [];
+        }
+        acc[key].push(obj);
+        return acc;
+    }, {});
+};
+
+const randomiseResults = () => ({
+    posthook: collection => {
+        const numberOfTeams = Object.keys(groupBy(collection, "teamId")).length;
+        const numberOfWrestlers = collection.length;
+        if (numberOfWrestlers > 1 && numberOfTeams > 1) {
+            const winner = chooseRandom(collection);
+            const losers = collection.filter(loser => loser.teamId !== winner.teamId);
+            const loser = chooseRandom(losers);
+            return collection.map(item => {
+                item.winner = item.id === winner.id || winner.teamId === item.teamId;
+                item.loser = item.id === loser.id;
+                return item;
+            });
+        }
+        return collection;
+    }
+});
 
 const select$1 = weighted.select;
 
@@ -56,7 +84,7 @@ const defaultOptions = {
 };
 
 const randomiseFight = (options = defaultOptions, result = []) => ({
-  prehook: data => {
+  posthook: data => {
     const {
       tag,
       amount,
@@ -100,22 +128,30 @@ const randomiseFight = (options = defaultOptions, result = []) => ({
   }
 });
 
-const filterByGender = gender => ({
+var filterByGender = gender => ({
     posthook: data => data.filter(item => item.male === Boolean(gender))
 });
 
-var formatModel = {
+var addTeamIdToModel = ({
+    prehook: data => data.map(item => Object.assign({}, {
+        teamId: null
+    }, item))
+});
+
+var addPointsToModel = ({
     prehook: data => data.map(item => Object.assign({}, {
         points: 100
-    }, item)),
-};
+    }, item))
+});
 
 
 
 var index = /*#__PURE__*/Object.freeze({
+  randomiseResults: randomiseResults,
   randomiseFight: randomiseFight,
   filterByGender: filterByGender,
-  formatModel: formatModel
+  addTeamIdToModel: addTeamIdToModel,
+  addPointsToModel: addPointsToModel
 });
 
 exports.factory = factory;

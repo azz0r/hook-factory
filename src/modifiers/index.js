@@ -1,9 +1,13 @@
+import randomiseResults from "./randomiseResults"
 import randomiseFight from "./randomiseFight"
 import filterByGender from "./filterByGender"
-import formatModel from "./formatModel"
+import addTeamIdToModel from "./addTeamIdToModel"
+import addPointsToModel from "./addPointsToModel"
 
 export {
+  randomiseResults,
   randomiseFight,
   filterByGender,
-  formatModel
+  addTeamIdToModel,
+  addPointsToModel
 };

@@ -1,4 +1,5 @@
 import weighted from "weighted"
+
 import {
   chooseRandom
 } from "../helpers"
@@ -22,7 +23,7 @@ export const defaultOptions = {
 }
 
 export const randomiseFight = (options = defaultOptions, result = []) => ({
-  prehook: data => {
+  posthook: data => {
     const {
       tag,
       amount,
