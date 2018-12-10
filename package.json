@@ -8,11 +8,11 @@
   "license": "MIT",
   "devDependencies": {
     "assert": "^1.4.1",
-    "benchmark": "^2.1.4",
     "babel-core": "^6.26.3",
     "babel-jest": "^23.0.1",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.7.0",
+    "benchmark": "^2.1.4",
     "coveralls": "^3.0.1",
     "jest": "^23.1.0",
     "jest-cli": "^23.1.0",
@@ -51,5 +51,8 @@
     "transform": {
       "^.+\\.js$": "babel-jest"
     }
+  },
+  "dependencies": {
+    "weighted": "^0.3.0"
   }
 }

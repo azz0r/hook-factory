@@ -2,52 +2,59 @@ export default {
   collection: [{
     name: "Shinn",
     id: 1,
-    gender: "male"
+    male: true
   }, {
     name: "Lin",
     id: 2,
-    gender: "male"
+    male: true
   }, {
     name: "Jim",
     id: 3,
-    gender: "male"
+    male: true
   }, {
     name: "Kim",
     id: 4,
-    gender: "female"
+    male: false
   }],
   justMen: [{
     name: "Shinn",
     id: 1,
-    gender: "male"
+    male: true
   }, {
     name: "Lin",
     id: 2,
-    gender: "male"
+    male: true
   }, {
     name: "Jim",
     id: 3,
-    gender: "male"
+    male: true
   }],
+  justWomen: [
+    {
+      name: "Kim",
+      id: 4,
+      male: false
+    }
+  ],
   formattedModels: [{
     name: "Shinn",
     id: 1,
-    gender: "male",
+    male: true,
     points: 100
   }, {
     name: "Lin",
     id: 2,
-    gender: "male",
+    male: true,
     points: 100
   }, {
     name: "Jim",
     id: 3,
-    gender: "male",
+    male: true,
     points: 100
   }, {
     name: "Kim",
     id: 4,
-    gender: "female",
+    male: false,
     points: 100
   }]
 }

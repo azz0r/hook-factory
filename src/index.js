@@ -1,5 +1,5 @@
 import factory from "./factory"
-import modifiers from "./modifiers"
+import * as modifiers from "./modifiers/index"
 
 export {
     factory,
