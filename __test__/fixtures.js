@@ -12,6 +12,10 @@ export default {
     id: 3,
     male: true
   }, {
+    name: "Stim",
+    id: 6,
+    male: true
+  }, {
     name: "Kim",
     id: 4,
     male: false
@@ -27,6 +31,10 @@ export default {
   }, {
     name: "Jim",
     id: 3,
+    male: true
+  },{
+    name: "Stim",
+    id: 6,
     male: true
   }],
   justWomen: [
@@ -49,6 +57,11 @@ export default {
   }, {
     name: "Jim",
     id: 3,
+    male: true,
+    points: 100
+  }, {
+    name: "Stim",
+    id: 6,
     male: true,
     points: 100
   }, {

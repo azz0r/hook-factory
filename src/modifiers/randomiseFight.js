@@ -1,59 +1,61 @@
 import weighted from "weighted"
 
-const defaultOptions = {
+export const defaultOptions = {
     male: {
-      options: [true, false,],
-      weights: [0.8, 0.2,],
+      options: [true, false],
+      weights: [0.5, 0.5]
     },
     amount: {
-      options: [2, 3, 4, 5, 6,],
-      weights: [0.5, 0.1, 0.1, 0.1, 0.1,],
+      options: [2, 3, 4, 5, 6],
+      weights: [0.5, 0.1, 0.1, 0.1, 0.1]
     },
     tag: {
-      options: [true, false,],
-      weights: [0.5, 0.5,],
-      perTeam: 2,
+      options: [true, false],
+      weights: [0.3, 0.7],
+      perTeam: 2
     },
   }
   
   export const randomiseFight = (options = defaultOptions) => ({
     prehook: data => {
-      const getWrestlerWeights = length => new Array(length).fill(1 / length)
-      const chooseRandomWrestler = wrestlers => weighted.select(wrestlers, getWrestlerWeights(wrestlers.length))
-  
       const result = []
+      const getWeights = length => new Array(length).fill(1 / length)
+      const chooseRandom = items => weighted.select(items, getWeights(items.length))
+      
       const { tag, amount, male, } = options
-      let noWrestlers = weighted.select(amount.options, amount.weights)
-  
-      const gender = weighted.select(male.options, male.weights) ? "male": "female"
+      const gender = weighted.select(male.options, male.weights)
       const isTagMatch = weighted.select(tag.options, tag.weights)
-  
-      let wrestlers = data.filter(wrestler => wrestler.gender === gender)
-  
+    
+      let maxPerTeam = weighted.select(amount.options, amount.weights)
+      let collection = data.filter(item => item.male === gender)
+      let teamId = 0
+      let perTeam = 0
+
       if (isTagMatch) {
-        noWrestlers = noWrestlers * noWrestlers
+        maxPerTeam = maxPerTeam * maxPerTeam
+      } 
+
+      if (collection.length < 2) {
+        collection = data.filter(item => item.male !== gender)
       }
   
-      let teamId = 0,
-        perTeam = 0
-      while (noWrestlers > 0 && wrestlers.length > 0) {
-        wrestlers = wrestlers.filter(wrestler => !ids.includes(wrestler.id))
-        const chosenWrestler = chooseRandomWrestler(wrestlers)
+      while (maxPerTeam > 0 && collection.length > 0) {
+        const chosen = chooseRandom(collection)
         if (isTagMatch) {
           if (perTeam === tag.perTeam) {
             perTeam = 0
             teamId++
           }
-          chosenWrestler.teamId = teamId
+          chosen.teamId = teamId
         } else {
-          chosenWrestler.teamId = teamId++
+          chosen.teamId = teamId++
         }
   
-        wrestlers = wrestlers.filter(wrestler => wrestler.id !== chosenWrestler.id)
-        result.push(chosenWrestler)
+        collection = collection.filter(item => item.id !== chosen.id)
+        result.push(chosen)
   
         perTeam++
-        noWrestlers--
+        maxPerTeam--
       }
       return result
     }

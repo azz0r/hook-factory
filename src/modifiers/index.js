@@ -1,9 +1,9 @@
 import randomiseFight from "./randomiseFight"
-import genderFilter from "./genderFilter"
+import filterByGender from "./filterByGender"
 import formatModel from "./formatModel"
 
 export {
   randomiseFight,
-  genderFilter,
+  filterByGender,
   formatModel
 };

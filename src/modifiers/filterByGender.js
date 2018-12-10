@@ -1,5 +1,5 @@
-export const genderFilter = gender => ({  
+export const filterByGender = gender => ({  
     posthook: data => data.filter(item => item.male === Boolean(gender))
 });
 
-export default genderFilter
+export default filterByGender
