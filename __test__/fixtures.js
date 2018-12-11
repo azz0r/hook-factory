@@ -77,10 +77,16 @@ export const teamIdsModels = [{
   male: false,
   teamId: null
 }]
+
+export const count = {
+  count: 2
+}
+
 export default {
   justMen,
   justWomen,
   pointsModels,
   teamIdsModels,
-  data
+  data,
+  count
 }

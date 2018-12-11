@@ -6,6 +6,7 @@ import {
   filterByGender,
   randomiseFight,
   randomiseResults,
+  countUp
 } from "./modifiers"
 import {
   groupBy
@@ -15,8 +16,22 @@ import {
   justWomen,
   pointsModels,
   teamIdsModels,
-  data
+  data,
+  count
 } from "./fixtures"
+
+test("countUp", () => {
+  const data = {
+    count: 0
+  };
+  const modifiers = [countUp];
+  const value = factory({
+    data,
+    modifiers
+  });
+
+  expect(value).toEqual(count);
+});
 
 test("addPointsToModel", () => {
   const modifiers = [addPointsToModel]
