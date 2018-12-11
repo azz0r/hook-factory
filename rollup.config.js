@@ -5,7 +5,7 @@ import pkg from "./package.json";
 export default [{
     input: "src/index.js",
     output: {
-      name: "fightSimulator",
+      name: "hookFactory",
       file: pkg.browser,
       format: "umd"
     },

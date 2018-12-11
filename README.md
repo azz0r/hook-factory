@@ -12,7 +12,7 @@
 ### 📒 <a name="usage">Usage</a>
 ```javascript
 
-import Factory from "hook-factory";
+import factory from "hook-factory"
 
 const data = {
     count: 0

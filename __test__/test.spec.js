@@ -1,4 +1,4 @@
-import factory from "../dist/fightSimulator.umd";
+import factory from "../dist/hookFactory.umd";
 
 import {
   addPointsToModel,

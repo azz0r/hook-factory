@@ -1,10 +1,10 @@
 {
-  "name": "fight-simulator",
-  "version": "0.0.1",
-  "description": "fight simulation with hook system",
-  "main": "dist/fightSimulator.cjs.js",
-  "repository": "git@github.com:azz0r/fight-simulator.git",
-  "author": "Aaron Lote <5314860+azz0r@users.noreply.github.com>",
+  "name": "hook-factory",
+  "version": "1.0.0",
+  "description": "pre and post hook factory",
+  "main": "dist/hookFactory.cjs.js",
+  "repository": "git@github.com:azz0r/hook-factory.git",
+  "author": "azz0r <5314860+azz0r@users.noreply.github.com>",
   "license": "MIT",
   "devDependencies": {
     "assert": "^1.4.1",
@@ -31,8 +31,8 @@
     "test:watch": "BABLE_ENV=test jest --watch",
     "test:cov": "BABEL_ENV=test jest --coverage"
   },
-  "module": "dist/fightSimulator.esm.js",
-  "browser": "dist/fightSimulator.umd.js",
+  "module": "dist/hookFactory.esm.js",
+  "browser": "dist/hookFactory.umd.js",
   "files": [
     "dist"
   ],
