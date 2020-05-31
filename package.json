@@ -1,6 +1,6 @@
 {
   "name": "hook-factory",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "pre and post hook factory",
   "main": "dist/hookFactory.cjs.js",
   "repository": "git@github.com:azz0r/hook-factory.git",
