@@ -1,6 +1,6 @@
 'use strict';
 
-function index ({
+function HookFactory({
     data = {},
     modifiers = []
 }) {
@@ -27,4 +27,4 @@ function index ({
     return props;
 }
 
-module.exports = index;
+module.exports = HookFactory;

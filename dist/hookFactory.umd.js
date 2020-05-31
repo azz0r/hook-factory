@@ -4,7 +4,7 @@
     (global.hookFactory = factory());
 }(this, (function () { 'use strict';
 
-    function index ({
+    function HookFactory({
         data = {},
         modifiers = []
     }) {
@@ -31,6 +31,6 @@
         return props;
     }
 
-    return index;
+    return HookFactory;
 
 })));

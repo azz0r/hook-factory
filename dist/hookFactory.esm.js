@@ -1,4 +1,4 @@
-function index ({
+function HookFactory({
     data = {},
     modifiers = []
 }) {
@@ -25,4 +25,4 @@ function index ({
     return props;
 }
 
-export default index;
+export default HookFactory;
